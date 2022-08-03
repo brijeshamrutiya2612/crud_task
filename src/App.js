@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Fragment } from 'react';
+import {Routes, Route} from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import Home from './screen/Home';
+import {ToastContainer} from 'react-toastify';
+import ViewData from './screen/ViewData';
+import EditData from './screen/EditData';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <div
+        style={{
+          margin: "auto",
+        }}
+      >
+      <ToastContainer position="top-center" limit={1}/>
+      <Routes>
+      <Route index path="/" element={<Home/>}></Route>
+      <Route path="/ViewData" element={<ViewData/>}></Route>
+      <Route path="/EditData/:id" element={<EditData/>}></Route>
+      </Routes>
+      </div>
+    </Fragment>
   );
 }
 

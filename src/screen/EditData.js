@@ -69,12 +69,12 @@ const EditData = () => {
     } else {
       sendFormData();
       toast.success("User's Data Updated");
-      navigate("/ViewData");
+      navigate("/");
     }
   };
 
   const cancel = () => {
-    navigate("/ViewData");
+    navigate("/");
   };
   return (
     <div>

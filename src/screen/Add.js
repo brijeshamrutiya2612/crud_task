@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Home = () => {
+const Add = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     firstname: "",
@@ -117,4 +117,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Add;

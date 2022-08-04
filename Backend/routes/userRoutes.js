@@ -23,20 +23,20 @@ userForm.post(
 
 ///-----------------   Get All User -----------------------///
 
-// userForm.get(
-//   "/get",
-//   expressAsyncHandler(async (req, res) => {
-//     const users = await User.find();
-//     res.send(users);
-//   })
-// );
+userForm.get(
+  "/get",
+  expressAsyncHandler(async (req, res) => {
+    const users = await User.find();
+    res.send(users);
+  })
+);
 
 ///-----------------   Pagination -----------------------///
 
 const PAGE_SIZE = 4;
 
 userForm.get(
-  "/get",
+  "/pagination",
   expressAsyncHandler(async (req, res) => {
     const { query } = req;
     const pageSize = query.pageSize || PAGE_SIZE;

@@ -14,15 +14,19 @@ const ViewData = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getUserData = async (currentPage) => {
+    const getUserData = async () => {
+
+      //// Pagination Part ///////
       try {
-        const res = await axios.get(`http://localhost:5000/api/userdata/pagination?page=${currentPage}`);
+        const res = await axios.get(`http://localhost:5000/api/userdata/pagination`);
         setUserView(res.data.users);
         setPages(res.data);
       } catch (err) {
         toast.error(err);
       }
       
+      //// Get User Data For Search ///////
+
       try {
         const res = await axios.get(`http://localhost:5000/api/userdata/get`);
         setSearchUserData(res.data);
@@ -41,6 +45,8 @@ const ViewData = () => {
     return data;
   };
 
+  /// Get Current Page No & Send to URI ////
+  
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
     const userFormServer = await fetchUser(currentPage);

@@ -45,13 +45,14 @@ const Add = () => {
     } else {
       sendFormData();
       toast.success("Data Successfully Add");
+      navigate("/");
     }
   };
   const reset = () => {
     document.getElementById("crud_form").reset();
   };
   const viewData = () => {
-    navigate("/ViewData");
+    navigate("/");
   };
   return (
     <div className="container">
